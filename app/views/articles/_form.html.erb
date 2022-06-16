@@ -1,0 +1,23 @@
+<% if @article.errors.any? %>
+  <h2>The following errors prevented the article from being saved</h2>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li>
+        <%= msg %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with(model: @article, local: true)  do |f| %>
+  <!-- form_with submit as ajax by default, but form_with has many awesome features -->
+  <!-- scope: (model name as a symbol), url: (action in html form /articles), local : post this form w/ standard http post instead of using ajax-->
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
