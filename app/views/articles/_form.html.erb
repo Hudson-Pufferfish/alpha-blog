@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-10">
-      <%= render 'shared/errors' %>
+      <%= render 'shared/errors', obj: @article %>
       <%= form_with(model: @article, class: "shadow p-3 mb-3 bg-info rounded", local: true) do |f| %>
         <!-- form_with submit as ajax by default, but form_with has many awesome features -->
         <!-- scope: (model name as a symbol), url: (action in html form /articles), local : post this form w/ standard http post instead of using ajax-->
